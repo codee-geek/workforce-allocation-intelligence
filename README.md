@@ -116,6 +116,19 @@ Linear program minimizing:
 - Unfilled project FTE gaps (weighted by completion risk × priority)
 - Skill mismatch penalties
 
+## Deployment
+
+See **[DEPLOY.md](DEPLOY.md)** for full instructions.
+
+**Quickest (free):** [Streamlit Community Cloud](https://share.streamlit.io)
+
+1. Sign in with GitHub → **New app** → repo `workforce-allocation-intelligence`
+2. Main file: `streamlit_app.py`
+3. Secrets: `WORKFORCE_CONFIG = "config.cloud.yaml"`
+4. Deploy → share your `*.streamlit.app` URL on your resume
+
+**Docker / Render:** `docker compose up` or use `render.yaml` blueprint.
+
 ## License
 
 MIT

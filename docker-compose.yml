@@ -1,0 +1,16 @@
+services:
+  dashboard:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      WORKFORCE_CONFIG: config.cloud.yaml
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "8000:8000"
+    environment:
+      WORKFORCE_CONFIG: config.cloud.yaml

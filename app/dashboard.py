@@ -6,6 +6,7 @@ Run: streamlit run app/dashboard.py
 from __future__ import annotations
 
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -16,6 +17,15 @@ import streamlit as st
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+
+# Streamlit Cloud secrets / deploy env
+if "WORKFORCE_CONFIG" not in os.environ:
+    try:
+        if "WORKFORCE_CONFIG" in st.secrets:
+            os.environ["WORKFORCE_CONFIG"] = st.secrets["WORKFORCE_CONFIG"]
+    except Exception:
+        pass
+os.environ.setdefault("WORKFORCE_CONFIG", "config.cloud.yaml")
 
 from src.config import load_config
 from src.pipeline.orchestrator import WorkforceIntelligencePipeline

@@ -1,0 +1,20 @@
+# https://render.com — Blueprint deploy (Dashboard + API)
+services:
+  - type: web
+    name: workforce-dashboard
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /_stcore/health
+    envVars:
+      - key: WORKFORCE_CONFIG
+        value: config.cloud.yaml
+
+  - type: web
+    name: workforce-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile.api
+    plan: free
+    envVars:
+      - key: WORKFORCE_CONFIG
+        value: config.cloud.yaml

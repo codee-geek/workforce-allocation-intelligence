@@ -1,0 +1,49 @@
+# Lighter config for cloud deploy (faster cold start on free tiers)
+company:
+  num_employees: 100
+  num_projects: 15
+  num_skills: 12
+
+skills:
+  - Python
+  - Java
+  - React
+  - DevOps
+  - Data Engineering
+  - ML/AI
+  - Cloud (AWS)
+  - Cloud (Azure)
+  - QA Automation
+  - Business Analysis
+  - Project Management
+  - UI/UX
+
+simulation:
+  history_weeks: 16
+  seed: 42
+
+risk_thresholds:
+  bench_high: 0.65
+  burnout_high: 0.70
+  completion_risk_high: 0.60
+
+optimization:
+  max_utilization: 1.0
+  target_utilization: 0.85
+  bench_penalty: 100
+  overload_penalty: 150
+  skill_mismatch_penalty: 50
+  completion_weight: 200
+
+models:
+  xgboost:
+    n_estimators: 100
+    max_depth: 5
+    learning_rate: 0.1
+  forecast:
+    horizon_weeks: 6
+    method: prophet
+
+paths:
+  data_dir: data
+  models_dir: models

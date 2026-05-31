@@ -1,0 +1,16 @@
+.venv/
+venv/
+__pycache__/
+.git/
+.gitignore
+.DS_Store
+*.pyc
+.pytest_cache/
+.cursor/
+terminals/
+data/*.csv
+data/*.json
+!data/.gitkeep
+models/*.joblib
+models/*.json
+!models/.gitkeep
